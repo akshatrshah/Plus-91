@@ -97,16 +97,16 @@ def update_table():
         buy_after_low_list = buyafterlow(y, d)
         print("Buy After Low: ", buy_after_low_list)
         # sending back to excel sheets
-        # with pd.ExcelWriter("./final_outputs/Result.xlsx", mode="a", engine="openpyxl", if_sheet_exists='replace') as writer:
+        with pd.ExcelWriter("./final_outputs/Result.xlsx", mode="a", engine="openpyxl", if_sheet_exists='replace') as writer:
 
-        # high_page.to_excel(writer, sheet_name="High", index=False)
-        # low_page.to_excel(writer, sheet_name="Low", index=False)
+        high_page.to_excel(writer, sheet_name="High", index=False)
+        low_page.to_excel(writer, sheet_name="Low", index=False)
         # # buy_after_low_page.to_excel(
         # #     writer, sheet_name="Buy After Low", index=False)
-        # trend_buy_page.to_excel(
-        #     writer, sheet_name="Trend Buy", index=False)
-        # trend_sell_page.to_excel(
-        #     writer, sheet_name="Trend Sell", index=False)
+        trend_buy_page.to_excel(
+            writer, sheet_name="Trend Buy", index=False)
+        trend_sell_page.to_excel(
+            writer, sheet_name="Trend Sell", index=False)
 
 
 # update_table()
