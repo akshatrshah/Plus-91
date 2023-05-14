@@ -29,8 +29,8 @@ def buyafterlow(y, stocks_for_today_date_low):
     # stocks_on_date2 = df[df['DATE'] == last_3_days[1]]['STOCK NAME'].to_list()
     # stocks_on_date3 = df[df['DATE'] == last_3_days[2]]['STOCK NAME'].to_list()
     dates = pd.Series(df['DATE'].unique()).to_list()
-    last_3_days = [x for x in dates if x == x]
-    last_3_days = last_3_days[-3:]
+    last_days = [x for x in dates if x == x]
+    last_3_days = last_days[-3:]
     stocks_on_date1 = df[df['DATE'] == last_3_days[0]]['STOCK NAME'].to_list()
     stocks_on_date2 = df[df['DATE'] == last_3_days[1]]['STOCK NAME'].to_list()
     stocks_on_date3 = df[df['DATE'] == last_3_days[2]]['STOCK NAME'].to_list()
@@ -43,7 +43,7 @@ def buyafterlow(y, stocks_for_today_date_low):
                 if i not in stocks_for_today_date_low:
                     res.append(i)
 
-    if len(dates) > 5:
+    if len(last_days) > 5:
         drop_for = dates[0]
         dates.pop(0)
         df = df.drop(df[df['DATE'] == drop_for].index)
